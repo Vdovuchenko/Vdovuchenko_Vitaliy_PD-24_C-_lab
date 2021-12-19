@@ -30,28 +30,30 @@ namespace ConsoleApp1
         } 
         static void Lab_2()
         {
+            Console.Write($"Введіть кількість чисел: ");
             int N = int.Parse(Console.ReadLine());
-            int[] nums = new int[N+1];
-            Random rand = new Random();
-            int Max = 0;
-            int num = 0;
-            for (int i = 0; i < N-1; i++)
+            int[] nums = new int[N];
+            
+            for (int i = 0; i < N; i++)
             {
-                nums[i] = rand.Next(10);
-                Console.Write("{0} ", nums[i]);
+                Console.Write($"Введіть число: ");
+                nums[i] = int.Parse(Console.ReadLine());
+                
             }
             Console.WriteLine();
-            nums[N] = -1;
-            Max = nums[0];
 
-            for(int i = 0; i < N - 1; i++)
-            {
-                if (nums[i] >= nums[i + 1])
-                {
-                    num++;
-                }
-            }
-            num--;
+
+            int num = 0;
+            
+               for(int i = 0; i < N-2; i++)
+               {
+                   if (nums[i + 1] - nums[i] == nums[i + 2] - nums[i + 1] && nums[i] < nums[i + 1])
+                   {
+                       num++;
+                   }
+               }
+            
+
             Console.WriteLine(num);
         }
         static void Lab_3()
@@ -136,7 +138,7 @@ namespace ConsoleApp1
             Console.OutputEncoding = System.Text.Encoding.Unicode;
             Console.InputEncoding = System.Text.Encoding.Unicode;
             //Lab_1();
-            // НЕ РОБИТЬ // Lab_2();
+            // Lab_2();
             //Lab_3();
             //Lab_4();
         }
